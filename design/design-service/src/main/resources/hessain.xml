@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="helloImpl" class="com.mshejiyun.nebula.designservice.service.HelloWordService"></bean>
+    <bean name="/HelloWorldService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="helloImpl"></property>
+        <property name="serviceInterface" value="api.HelloWordInterface"></property>
+    </bean>
+
+</beans>
